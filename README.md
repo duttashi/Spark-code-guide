@@ -4,7 +4,8 @@ This repository contains my experiments in data wrangling and analysis with Apac
 
 ## Setup
   * [Local Installation](https://edumine.wordpress.com/2015/06/11/how-to-install-apache-spark-on-a-windows-7-environment/)
-  * [Cluster Deployment]()
+  * [RStudio](https://edumine.wordpress.com/2015/06/18/working-with-apache-sparkr-1-4-0-in-rstudio/)
+  * [Cluster Deployment](http://www.slideshare.net/jonathandinu/the-data-scientists-guide-to-apache-spark/69)
   
 ## SparkR with a Notebook
   1. Install [IRKernel](https://github.com/IRkernel/IRkernel)
