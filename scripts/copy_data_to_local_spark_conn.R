@@ -26,6 +26,6 @@ dim(flights_tbl)
 str(flights_tbl)
 
 # check amount of memory taken up by the flights_tbl tibble
-object.size(flights_tbl)
+object.size(flights_tbl) # 40615752 bytes
 # check colnames data table
 colnames(flights_tbl)
