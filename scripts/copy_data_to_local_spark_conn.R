@@ -29,3 +29,6 @@ str(flights_tbl)
 object.size(flights_tbl) # 40615752 bytes
 # check colnames data table
 colnames(flights_tbl)
+
+# Disconnect from Spark
+spark_disconnect(sc)
