@@ -1,6 +1,6 @@
-# Spark-code-guide
+#### Spark-code-guide
 
-This repository contains my experiments in data wrangling and analysis with `sparklyr`- R interface for Apache Spark. By leveraging Spark’s APIs for Python and R to present practical applications, I present to the interested reader the technology that is used to solve big data paradigms.
+This repository contains my experiments in data wrangling and analysis Apache `sparkR`. By leveraging Spark’s APIs for Python and R to present practical applications, I present to the interested reader the technology that is used to solve big data paradigms.
 
 ## Setup
   * [Local Installation](https://edumine.wordpress.com/2015/06/11/how-to-install-apache-spark-on-a-windows-7-environment/)
