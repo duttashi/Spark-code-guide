@@ -10,8 +10,7 @@ library(sparklyr)
 spark_conn <- spark_connect(master="local")
 
 # Print the version of Spark
-sc= spark_conn
-spark_version(sc)
+spark_version(spark_conn)
 
 # Disconnect from Spark
 spark_disconnect(sc)
