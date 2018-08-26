@@ -4,3 +4,7 @@
 .Ruserdata
 derby.log
 *.Rproj
+data
+*.log
+*.spark.log
+*.spark.log.2017-12-10
