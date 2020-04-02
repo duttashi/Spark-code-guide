@@ -11,10 +11,12 @@ library(nycflights13)
 # Filtering joins, which filter observations from one data frame based on whether or not they match an observation in the other table.
 # Set operations, which treat observations as if they were set elements.
 
-airlines # A tibble: 16 x 2
-airports # A tibble: 1,458 x 8
-planes # A tibble: 3,322 x 9
-weather # A tibble: 26,115 x 15
+# The nycflights13 has 5 tables, as follows:
+flights # # A tibble: 336,776 x 19. all flights that departed from NYC in 2013
+airlines # A tibble: 16 x 2. translation between two letter carrier codes and names
+airports # A tibble: 1,458 x 8. airport names and locations
+planes # A tibble: 3,322 x 9. construction information about each plane
+weather # A tibble: 26,115 x 15. hourly meterological data for each airport
 
 
 # relationship between the 4 tables
