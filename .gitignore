@@ -1,10 +1,10 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
+*.Rhistory
+*.Ruserdata
+workspace.RData
+*.test
+*.RData
+\data
 derby.log
-*.Rproj
 data
 *.log
 *.spark.log
-*.spark.log.2017-12-10
