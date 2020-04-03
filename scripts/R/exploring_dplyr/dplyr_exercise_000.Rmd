@@ -23,6 +23,12 @@ knitr::opts_chunk$set(echo = TRUE)
 `sample_n / sample_frac()`	randomly sample rows
 `summarise()`	reduce variables to values
 
+Load the required library
+
+```{r}
+library(tidyverse)
+```
+
 ## Exercise set # 1
 
 Make use of `%>%` operator and any of the functions in package dplyr (see above) to answer the following questions.
@@ -54,7 +60,7 @@ flights %>%
 ```{r nycflights13}
 flights %>%
   select(flight, carrier, distance, dep_delay) %>%
-  arrange(desc(distance), desc(dep_delay))
+  arrange(desc(distance,dep_delay))
 ```
 
 5. Select only columns month, origin, and destination from flights.
@@ -111,6 +117,9 @@ flights %>%
 e.  Arrived more than two hours late, but didn’t leave late
 ```{r nycflights13}
 flights %>%
+  select(flight, carrier, dest,arr_delay, sched_dep_time)%>%
+  filter(arr_delay>2 & sched_dep_time) %>%
+  arrange(arr_delay, desc(sched_dep_time))
   
 ```
 f.  Were delayed by at least an hour, but made up over 30 minutes in flight
