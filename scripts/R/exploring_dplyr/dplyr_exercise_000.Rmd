@@ -130,6 +130,7 @@ flights %>%
 g.  Departed between midnight and 6 am (inclusive)
 ```{r nycflights13}
 flights %>%
+  filter(dep_time>5 & dep_time<2300)
   
 ```
 
