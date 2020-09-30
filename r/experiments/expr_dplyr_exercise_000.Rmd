@@ -1,0 +1,151 @@
+---
+title: "dplyr_verbs_simplified"
+author: "ashish"
+date: "April 2, 2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# dplyr verbs
+
+`filter()`	  choose rows matching a set of criteria
+`slice()` 	  choose rows using indices
+`select()`	  choose columns by name
+`pull()`  	  grab a column as a vector
+`rename()`	  rename specific columns
+`arrange()`	  reorder rows
+`mutate()`	  add new variables to the data frame
+`transmute()`	create a new data frame with new variables
+`distinct()`	filter for unique rows
+`sample_n / sample_frac()`	randomly sample rows
+`summarise()`	reduce variables to values
+
+Load the required library
+
+```{r}
+library(tidyverse)
+```
+
+## Exercise set # 1
+
+Make use of `%>%` operator and any of the functions in package dplyr (see above) to answer the following questions.
+
+1. Filter flights for those in January with a destination of Detroit Metro (DTW) or Chicago O’Hare (ORD).
+
+```{r nycflights13}
+flights %>%
+  select(flight, carrier, month, dest ) %>%
+  filter(month==1 & (dest=='DTW' | dest =='ORD'))
+```
+2. Filter flights for those before April with a destination that is not Detroit Metro (DTW) and had an origin of JFK.
+
+```{r nycflights13}
+flights %>%
+  select(flight, carrier, month, dest, origin ) %>%
+  filter(month<4 & (dest!='DTW' & origin =='JFK'))
+```
+
+3. Choose rows 1, 3, 7, 20 from flights.
+
+```{r nycflights13}
+flights %>%
+  slice(c(1, 3, 7, 20))
+```
+
+4. Arrange flights by distance and then by departure delay, with the sorting being in descending order in both cases. Hint: desc()
+
+```{r nycflights13}
+flights %>%
+  select(flight, carrier, distance, dep_delay) %>%
+  arrange(desc(distance,dep_delay))
+```
+
+5. Select only columns month, origin, and destination from flights.
+
+```{r nycflights13}
+flights %>%
+  select(month,origin,dest)
+```
+### Mutate : creating new variable
+
+6. Add a new variable to flights called gain, where gain is the arrival delay minus the departure delay.
+
+```{r nycflights13}
+flights %>%
+  select(flight, carrier, distance, arr_delay,dep_delay) %>%
+  mutate(gain = arr_delay-dep_delay)
+```
+### Summarise
+
+7. Use summarise to obtain the mean departure delay and mean arrival delay for all flights with an origin of EWR.
+```{r nycflights13}
+flights %>%
+  select(flight, carrier, distance, dep_delay, arr_delay, origin) %>%
+  filter(origin=='EWR') %>%
+  summarise_at(c("arr_delay","dep_delay"),mean, na.rm=TRUE)
+
+```
+9. Find all flights that
+
+a.  Had an arrival delay of two or more hours
+```{r nycflights13}
+flights %>%
+  filter(arr_delay>2)
+```
+b.  Flew to Houston (IAH or HOU)
+```{r nycflights13}
+flights %>%
+  filter(dest=='IAH' | dest =='HOU')
+```
+c.  Were operated by United, American, or Delta
+```{r nycflights13}
+flights %>%
+  select(flight, carrier, distance, dep_delay, arr_delay, origin)%>%
+  filter(carrier == 'UA' |carrier == 'AA' |carrier == 'DL')
+  
+```
+d.  Departed in summer (July, August, and September)
+```{r nycflights13}
+flights %>%
+  select(flight, carrier, month)%>%
+  filter(month %in% c(7:9))
+  
+```
+e.  Arrived more than two hours late, but didn’t leave late
+```{r nycflights13}
+flights %>%
+  select(flight, carrier, dest,arr_delay, sched_dep_time)%>%
+  filter(arr_delay>2 & sched_dep_time) %>%
+  arrange(arr_delay, desc(sched_dep_time))
+  
+```
+f.  Were delayed by at least an hour, but made up over 30 minutes in flight
+```{r nycflights13}
+flights %>%
+  
+```
+g.  Departed between midnight and 6 am (inclusive)
+```{r nycflights13}
+flights %>%
+  filter(dep_time>5 & dep_time<2300)
+  
+```
+
+
+
+## Exercise set # 2
+
+### Grouping
+
+Grouping adds substantially to the power of the dplyr functions. We will focus on using summarise() with `group_by()`, but grouping also can be used with other dplyr functions.
+
+1. Create a data frame which contains the number of flights and the mean arrival delay for flights on carrier UA (United Airlines) whose destination is O’Hare Airport (ORD). The number of flights and mean arrival delay is calculated separately for flights out of each of the origin airports.
+```{r nycflights13}
+
+```
+
+
+
