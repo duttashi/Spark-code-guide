@@ -9,3 +9,4 @@ data
 *.log
 *.spark.log
 .Rproj.user
+*.Rproj
