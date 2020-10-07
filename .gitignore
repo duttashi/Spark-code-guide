@@ -10,3 +10,4 @@ data
 *.spark.log
 .Rproj.user
 *.Rproj
+*.ini
