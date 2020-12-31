@@ -50,3 +50,4 @@ df1
 # shuffle the data column-wise
 df2 <- df1[,sample(ncol(df1))]
 df2
+df2[,"p_sex"]
